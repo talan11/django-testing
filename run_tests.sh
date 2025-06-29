@@ -1,4 +1,4 @@
-#!/bin/bash
+sourc#!/bin/bash
 
 print_message () {
     # Print the line with message (first argument) on the full terminal width
