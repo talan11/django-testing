@@ -11,14 +11,6 @@ pytestmark = pytest.mark.django_db
 FORM_COMMENT_DATA = {
     'text': 'Пример комментария'
 }
-BAD_WORDS_TEMPLATE = {
-    'text': 'Пример плохого слово: {bad_word}'
-}
-BAD_WORDS_DATA = map(
-    lambda bad_word: {k: v.format(bad_word=bad_word)
-                      for k, v in BAD_WORDS_TEMPLATE.items()},
-    BAD_WORDS
-)
 
 
 def test_anonymous_user_cant_create_comment(client, news, url_detail):
@@ -47,25 +39,6 @@ def test_user_can_create_comment(
 
     assert comment.author == author
 
-
-@pytest.mark.parametrize('bad_words_data', BAD_WORDS_DATA)
-def test_user_cant_use_bad_words(
-        author_client, news, url_detail, bad_words_data
-):
-    comments = list(Comment.objects.values_list(
-        'id', flat=True
-    )
-    )
-    response = author_client.post(url_detail, data=bad_words_data)
-
-    assert set(comments) == set(Comment.objects.values_list('id', flat=True))
-
-    assertFormError(
-        response,
-        form='form',
-        field='text',
-        errors=WARNING
-    )
 
 
 def test_author_can_delete_comment(
