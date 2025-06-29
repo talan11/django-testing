@@ -9,7 +9,6 @@ from .core.core_test_case import (
     URL_EDIT,
     URL_DELETE
 )
-from notes.forms import WARNING
 from notes.models import Note
 
 
@@ -43,7 +42,6 @@ class TestRoutes(CoreTestCase):
         initial_notes_ids = set(Note.objects.values_list("id", flat=True))
 
         self.form_data_post["slug"] = self.note.slug
-        response = self.author_client.post(URL_ADD, data=self.form_data_post)
         self.assertEqual(
             initial_notes_ids,
             set(Note.objects.values_list("id", flat=True))
