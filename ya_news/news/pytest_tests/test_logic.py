@@ -1,8 +1,9 @@
 from http import HTTPStatus
 
 import pytest
-from pytest_django.asserts import assertRedirects
+from pytest_django.asserts import assertFormError, assertRedirects
 
+from news.forms import BAD_WORDS, WARNING
 from news.models import Comment
 
 pytestmark = pytest.mark.django_db
@@ -37,6 +38,7 @@ def test_user_can_create_comment(
     assert comment.news == news
 
     assert comment.author == author
+
 
 
 def test_author_can_delete_comment(
