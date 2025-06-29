@@ -102,4 +102,5 @@ class TestRoutes(CoreTestCase):
 
         self.assertEqual(note_before_deletion.title, note_after_deletion.title)
         self.assertEqual(note_before_deletion.text, note_after_deletion.text)
-        self.assertEqual(note_before_deletion.author, note_after_deletion.author)
+        self.assertEqual(note_before_deletion.author,
+                         note_after_deletion.author)

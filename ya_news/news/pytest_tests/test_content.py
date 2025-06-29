@@ -16,7 +16,6 @@ def test_news_count(
     ].count() == settings.NEWS_COUNT_ON_HOME_PAGE
 
 
-
 def test_comments_order(
         news, client, list_comments, url_detail
 ):
@@ -28,12 +27,12 @@ def test_comments_order(
     ]
     assert timestamps == sorted(timestamps)
 
+
 def test_news_order(
         client, list_news, url_home
 ):
     news = [
-        i.date for i in client.get(
-        url_home).context['object_list']
+        i.date for i in client.get(url_home).context['object_list']
     ]
     assert news == sorted(news, reverse=True)
 
