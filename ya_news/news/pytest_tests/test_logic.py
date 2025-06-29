@@ -15,7 +15,8 @@ BAD_WORDS_TEMPLATE = {
     'text': 'Пример плохого слово: {bad_word}'
 }
 BAD_WORDS_DATA = map(
-    lambda bad_word: {k: v.format(bad_word=bad_word) for k, v in BAD_WORDS_TEMPLATE.items()},
+    lambda bad_word: {k: v.format(bad_word=bad_word)
+                      for k, v in BAD_WORDS_TEMPLATE.items()},
     BAD_WORDS
 )
 
