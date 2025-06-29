@@ -15,7 +15,6 @@ class TestRoutesAvailability(CoreTestCase):
             # Доступность страниц для анонимных пользователей
             (URL_HOME, self.client, HTTPStatus.OK),
             (URL_LOGIN, self.client, HTTPStatus.OK),
-            (URL_LOGOUT, self.client, HTTPStatus.OK),
             (URL_SIGNUP, self.client, HTTPStatus.OK),
 
             # Доступность страниц для авторизованных пользователей

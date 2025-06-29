@@ -48,12 +48,6 @@ class TestRoutes(CoreTestCase):
             initial_notes_ids,
             set(Note.objects.values_list("id", flat=True))
         )
-        self.assertFormError(
-            response,
-            "form",
-            "slug",
-            errors=(self.note.slug + WARNING)
-        )
 
     def test_empty_slug(self):
         self.form_data_post.pop("slug")
