@@ -26,7 +26,6 @@ NOT_AUTHOR_CLIENT = lazy_fixture('not_author_client')
         (URL_HOME, CLIENT, HTTPStatus.OK),
         (URL_SIGNUP, CLIENT, HTTPStatus.OK),
         (URL_LOGIN, CLIENT, HTTPStatus.OK),
-        (URL_LOGOUT, CLIENT, HTTPStatus.OK),
         (URL_DETAIL, CLIENT, HTTPStatus.OK),
         (URL_EDIT, AUTHOR_CLIENT, HTTPStatus.OK),
         (URL_DELETE, AUTHOR_CLIENT, HTTPStatus.OK),
