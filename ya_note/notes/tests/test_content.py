@@ -4,6 +4,7 @@ from .core.core_test_case import (
 )
 from notes.models import Note
 
+
 class TestNoteContent(CoreTestCase):
     def test_note_appears_in_authors_list(self):
         response = self.author_client.get(URL_LIST)
